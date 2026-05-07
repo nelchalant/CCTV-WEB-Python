@@ -66,7 +66,7 @@ def login():
             return redirect(url_for('camera.dashboard'))
         else:
             result = isy.start_system()
-            return redirect(result)
+            flash('result')
 
     return render_template('login.html')
 
