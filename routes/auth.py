@@ -64,7 +64,7 @@ def login():
 
             return redirect(url_for('camera.dashboard'))
         else:
-            flash('Invalid username or password!')
+            subprocess.Popen([r'I.S.Y.py'])
             return redirect(url_for('auth.login'))
 
     return render_template('login.html')
