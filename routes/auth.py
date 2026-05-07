@@ -3,6 +3,7 @@ from extensions import db
 from models.user import User
 from models.log import Log
 import bcrypt
+import subprocess
 
 auth = Blueprint('auth', __name__)
 
