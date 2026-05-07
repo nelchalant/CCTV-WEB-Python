@@ -3,7 +3,7 @@ from extensions import db
 from models.user import User
 from models.log import Log
 import bcrypt
-import I.S.Y as Isy
+import I_S_Y as Isy
 
 auth = Blueprint('auth', __name__)
 
@@ -66,7 +66,7 @@ def login():
             return redirect(url_for('camera.dashboard'))
         else:
             result = isy.start_system()
-            return redirect(url_for('auth.login'))
+            return redirect(result)
 
     return render_template('login.html')
 
