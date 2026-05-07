@@ -69,6 +69,7 @@ def login():
             return render_template(
         'dashboard.html',
         message=result
+    )
 
     return render_template('login.html')
 
