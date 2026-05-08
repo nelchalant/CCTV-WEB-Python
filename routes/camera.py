@@ -17,7 +17,7 @@ camera = Blueprint('camera', __name__)
 #   Phone app : "http://your_phone_ip:8080/video"
 #   Webcam    : 0
 # ─────────────────────────────────────────────────────────────
-STREAM_URL = None
+STREAM_URL = "http://192.168.18.94:8080/video"
 
 
 def generate_frames():
