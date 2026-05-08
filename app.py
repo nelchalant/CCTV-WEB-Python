@@ -1,9 +1,10 @@
 import os
-from flask import Flask, redirect, url_for, session
 from dotenv import load_dotenv
-from extensions import db
 
 load_dotenv()
+
+from flask import Flask, redirect, url_for, session
+from extensions import db
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'fallback-secret-key')
@@ -28,3 +29,6 @@ def index():
     if 'username' in session:
         return redirect(url_for('camera.dashboard'))
     return redirect(url_for('auth.login'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
