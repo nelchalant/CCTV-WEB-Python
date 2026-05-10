@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session, flash
-from extensions import db
+from extensions import db, limiter
 from models.user import User
 from models.log import Log
 import bcrypt
@@ -7,6 +7,7 @@ import bcrypt
 auth = Blueprint('auth', __name__)
 
 @auth.route('/register', methods=['GET', 'POST'])
+@limiter.limit("3 per hour")
 def register():
     if request.method == 'POST':
         username = request.form['username'].strip()
@@ -45,6 +46,7 @@ def register():
 
 
 @auth.route('/login', methods=['GET', 'POST'])
+@limiter.limit("5 per 15 minutes")
 def login():
     if request.method == 'POST':
         username = request.form['username'].strip()

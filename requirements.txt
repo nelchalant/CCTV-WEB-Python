@@ -5,3 +5,4 @@ bcrypt==5.0.0
 python-dotenv==1.2.2
 gunicorn==26.0.0
 opencv-python-headless==4.13.0.92
+flask-limiter==4.1.1

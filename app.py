@@ -4,12 +4,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from flask import Flask, redirect, url_for, session
-from extensions import db
+from extensions import db, limiter
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'fallback-secret-key')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+limiter.init_app(app)
 
 db.init_app(app)
 
